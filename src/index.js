@@ -1,6 +1,4 @@
 function displayPoem(response) {
-  console.log("poem generated");
-
   new Typewriter("#poem", {
     strings: response.data.answer,
     autoStart: true,
@@ -17,8 +15,6 @@ function generatePoem(event) {
   let context =
     " You are a poem expert and love to write short poems, your mission is to generate a 4 line poem in basic html, please do not include word html in a poem, make sure you follow user instructions below, do not include title of the poem. Sign the poem with 'SheCodes AI' inside a <strong> element at the end of the poem and not the beginning";
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
-
-  console.log("generating poem");
 
   axios.get(apiUrl).then(displayPoem);
 
